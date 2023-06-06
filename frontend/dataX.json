@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text":"Bugünün bilimi yarının teknolojisidir.",
+      "cipher": "Çvhyöyö çknkok acşjöjö ügmöpnplktkfkş.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "2 karakter kaydırma"},
+      "subject": "Bilim ve Teknoloji",
+      "point": 100
+
+    },
+     {
+      "id": 2,
+      "text":"Makineler ancak yanlış yaptıklarında size ne kadar güçlü olduklarını hatırlatır.",
+      "cipher": "Qeomripiv ergeo cerpış cetxıopevırhe wmdi ri oehev küçpü sphyopevırı lexıvpexıv.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "4 karakter kaydırma"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 3,
+      "text":"Teknoloji hareketleri kesin ve acımasız yapıyor. Bununla birlikte insanları da.",
+      "cipher": "Etmjilino pzğtmteltğo mtgoj ct zvökzgöa bzhöbiğ. Ydjdjlz yoğlomet ojgzjlzğö uz.",
+      "type": "atbash",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 4,
+      "text":"Nanoteknoloji, en az bir boyutu nanometre ile ölçülebilen, moleküler ve atomik ölçekte dizayn edilmiş işlevsel yapıların inşa edilmesi veya kullanılmasıdır.",
+      "cipher":"Gdghslbghçhzv, lg dc fvm fhatst gdghelsml vçl içıüçlfvçlg, ehçlbüçlm yl dshevb içılbsl jvcdag ljvçevp vpçlyolç adkuçdmug vgpd ljvçelov ylad btççdguçedoujum.",
+      "type": "affine",
+      "hint": {"hint1": "Affine Sifreleme", "hint2": "y=ax+b", "hint3": "(y=ax+b) -> x, şifrelenecek mesajı (plain text), y şifrelenmiş mesajı (cipher text) ifade etmektedir","hint3": "a=2 b=4"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 5,
+      "text":"Robot sözcüğü Çekçe “robota” kelimesinden gelir. Zorla çalıştırma anlamına gelen bu kelime, ilk defa 1920 yılında kurgusal bir karakteri tanımlamak için kullanıldı",
+      "cipher": "Ğzhzo icçjtbt Msnms “ğzhzof” nspışsiıüösü yspığ. Çzğpf mfpglogğşf füpfşgüf yspsü hr nspışs, ıpn ösuf 1920 agpgüöf nrğyrifp hığ nfğfnosğı ofügşpfşfn ımıü nrppfügpög",
+      "type": "affine",
+      "hint": {"hint1": "Affine Sifreleme", "hint2": "y=ax+b", "hint3": "(y=ax+b) -> x, şifrelenecek mesajı (plain text), y şifrelenmiş mesajı (cipher text) ifade etmektedir","hint3": "a=3 b=6"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 6,
+      "text":"İşletim sistemi, bilgisayarda çalışan donanım kaynaklarını yöneten ve çeşitli uygulama yazılımları için yaygın servisleri sağlayan bir yazılımlar bütünüdür. İşletim sistemi, uygulama programları ve bilgisayar donanımı arasındaki iletişimi sağlamaktadır.",
+      "cipher": "Oflteok gogetko, yolsogzbzğuz üzlöfzj uijzjök mzbjzmlzğöjö bıjtetj ct ütfoelo dbsdlzkz bzaölöklzğö oüoj bzbsöj gtğcogltğo gzrlzbzj yoğ bzaölöklzğ yçeçjçuçğ. Oflteok gogetko, dbsdlzkz hğisğzklzğö ct yolsogzbzğ uijzjökö zğzgöjuzmo olteofoko gzrlzkzmezuöğ.",
+      "type": "atbash",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 7,
+      "text":"RAM, bilgisayarda kısa süreli hafıza görevini üstelenen bir sistemdir. Bilgisayarı hissedilir derecede hızlandıran söz konusu sistem, bilgisayar satın alırken aranan özelliklerin başında gelir. Geçici olarak RAM üzerinde depolanan veriler sisteme işlendikten sonra silinir. Silinen verilerin yerine yeni veriler getirilir ve döngü bu şekilde devam eder. ",
+      "cipher": "ELA, müzsüfljleöl yufl fıepzü tlrukl sçepiübü ıfğpzpbpb müe füfğpaöüe. Müzsüfljleu tüffpöüzüe öpepnpöp tukzlböuelb fçk ycbhfh füfğpa, müzsüfljle flğub lzueypb lelblb çkpzzüyzpeüb mlguböl spzüe. Spoünü czlely ELA ıkpeüböp öpdczlblb ipeüzpe füfğpap ügzpböüyğpb fcbel füzübüe. Füzübpb ipeüzpeüb jpeübp jpbü ipeüzpe spğüeüzüe ip öçbsı mh gpyüzöp öpila pöpe.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "14 karakter kaydırma"},
+      "subject": "Bilim ve Teknoloji",
+      "point": 100
+
+    },
+     {
+      "id": 8,
+      "text":"Access Point, genelde kablolu ağları kablosuza çevirerek birden fazla cihazın erişimine açmak ya da mevcut ağ erişim kapsamını genişletmek için kullanılan donanımdır. Pratikte kablosuz ağ mantığıyla çalışan bu cihazlar, tek başlarına internet erişimi sunamaz, modemin sağladığı internet bağlantısını yaymak için kullanılır. Dolayısıyla Access Point tek başına modem olarak işlev görmez, internet sinyali yayabilmek için bir modeme ihtiyaç duyar. Access Point, iç ve dış ortamlarda kullanılmak üzere olası koşullar göz önünde bulundurularak farklı dayanıklılıklarda tasarlanır.",
+      "cipher": "Zvvtgg Hioje, stjtlut mzylild zrlzğö mzyligdaz ütcoğtğtm yoğutj şzalz vopzaöj tğofokojt zükzm bz uz ktcvde zr tğofok mzhgzköjö stjofltektm oüoj mdllzjölzj uijzjökuöğ. Hğzeomet mzyligda zr kzjeöröblz üzlöfzj yd vopzalzğ, etm yzflzğöjz ojetğjte tğofoko gdjzkza, kiutkoj gzrlzuörö ojetğjte yzrlzjeögöjö bzbkzm oüoj mdllzjölöğ. Uilzbögöblz Zvvtgg Hioje etm yzföjz kiutk ilzğzm ofltc sığkta, ojetğjte gojbzlo bzbzyolktm oüoj yoğ kiutkt opeobzü udbzğ. Zvvtgg Hioje, oü ct uöf iğezklzğuz mdllzjölkzm çatğt ilzgö mifdllzğ sıa ıjçjut ydldjudğdlzğzm şzğmlö uzbzjömlölömlzğuz ezgzğlzjöğ.",
+      "type": "atbash",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+    },
+     {
+      "id": 9,
+      "text":"Açılımı; Media Access Control Address olan MAC adresi, mevcut cihaz haricindeki cihazlar ile bağlantı kurabilen ve her aygıt için eşsiz olarak tanımlanan bir terim. Hemen her aygıtta bulunan donanım adresi veya fiziksel adres olarak da biliniyor. IP adresi ile birbirlerinden ayrılan en belirgin ve temel özelliği ise MAC adresinin değişmez ve tek olması. IP adresi değişiklik gösterse de MAC için aynı durum geçerli olmuyor.\n\nMAC adresinde 48 bit 6 oktetten oluşan bir bilgide ilk seri üretici firmayı tanımlarken, ikinci serideki 24 bit 3 oktet, cihazın yılına, üretim yerine ve donanım modeline karşılık geliyor. Bu durumda IP adresi hemen her kullanıcı tarafından ulaşılabilir olsa da cihazlardaki MAC adresi sadece aynı ağda bağlı olan kişiler ve kullanıcılar tarafından bilinebiliyor. Bahsi geçen oktetler arasına iki nokta işareti eklenerek yazılan bilgi, MAC adreslerinde sıkça karşılaşılan bir simge haline geliyor.\n\nBunlara ek olarak 02 ile başlayan MAC adresleri yerel ağ olarak bilinirken, 01 ile başlayanlar protokoller için tanımlanıyor. Standart bir MAC adresi ise şu şekilde tanımlanıyor; 68 : 7F : 74: F2 : EA : 56",
+      "cipher": "Fçımıpı; Prodf Fllrhh Lvskevm Fooerhh vmfs PFL foerhd, prqlnk ldafc afedldsorjd ldafcmfe dmr ifğmfskı jnefidmrs qr are fzxık dçds rşhdc vmfefj kfsıpmfsfs ide kredp. Arprs are fzxıkkf inmnsfs ovsfsıp foerhd qrzf udcdjhrm foerh vmfefj of idmdsdzve. DY foerhd dmr ideidemredsors fzeımfs rs irmdexds qr krprm öcrmmdğd dhr PFL foerhdsds orğdşprc qr krj vmpfhı. DY foerhd orğdşdjmdj xöhkrehr or PFL dçds fzsı onenp xrçremd vmpnzve.\n\nPFL foerhdsor 48 idk 6 vjkrkkrs vmnşfs ide idmxdor dmj hred üerkdld udepfzı kfsıpmfejrs, djdsld hredorjd 24 idk 3 vjkrk, ldafcıs zımısf, üerkdp zredsr qr ovsfsıp pvormdsr jfeşımıj xrmdzve. In onenpof DY foerhd arprs are jnmmfsılı kfefuısofs nmfşımfidmde vmhf of ldafcmfeofjd PFL foerhd hforlr fzsı fğof ifğmı vmfs jdşdmre qr jnmmfsılımfe kfefuısofs idmdsridmdzve. Ifahd xrçrs vjkrkmre fefhısf djd svjkf dşferkd rjmrsrerj zfcımfs idmxd, PFL foerhmredsor hıjçf jfeşımfşımfs ide hdpxr afmdsr xrmdzve.\n\nInsmfef rj vmfefj 02 dmr ifşmfzfs PFL foerhmred zrerm fğ vmfefj idmdsdejrs, 01 dmr ifşmfzfsmfe yevkvjvmmre dçds kfsıpmfsızve. Hkfsofek ide PFL foerhd dhr şn şrjdmor kfsıpmfsızve; 68 : 7U : 74: U2 : RF : 56",
+      "type": "affine",
+      "hint": {"hint1": "Affine Sifreleme", "hint2": "y=ax+b", "hint3": "(y=ax+b) -> x, şifrelenecek mesajı (plain text), y şifrelenmiş mesajı (cipher text) ifade etmektedir","hint3": "a=3 b=5"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 10,
+      "text":"İlk kriptolog, 4000 yıl önce yaşamış Mısırlı bir kâtiptir. O, efendisinin hayatını anlatırken hiyeroglifleri şifrelenmiş bir şekilde oluşturmuştu ve bazı hiyeroglifler daha önce hiç kullanılmamıştı.\n\nKriptografi, bu şekilde başlamasına karşın, hayatının ilk 3000 yılında neredeyse hiç gelişemedi. Dünyanın farklı farklı yerlerinde bağlantısız bir şekilde en temel biçimde kullanılmıştı ancak medeniyetlerin yıkılışıyla sonraki adımlara geçilememişti.\n\nDönemin en önde uygarlığı olan Çin'de ise yazının şifresiz yazılmasının bile çok zor olması nedeniyle kriptografi hiç gelişemedi.\n\nDaha sonraları (MÖ 5. - 6. yüzyıl) askeri istihbaratta gizlilik gerekmesi nedeniyle, kriptografi askeri alana girdi. Askeri alandaki ilk kriptograflar Spartalılardır.\n\n9. yüzyıl'da Kindî, kriptoloji biliminde uygulanan tek alfabeli yerine koyma şifreleme yöntemini geliştirerek frekans analizini bulan ilk kişi olmuştur. Kindî, kriptoloji biliminde Jul Sezar (MÖ 50) tarafından bulunan ve uygulanan tek alfabeli yerine koyma şifreleme yöntemini geliştirerek frekans analizini bulan ilk kişidir.",
+      "cipher": "Olm mğoheilis, 4000 böl ıjvt bzfzköf Kögöğlö yoğ mâeoheoğ. I, tştjuogojoj pzbzeöjö zjlzeöğmtj pobtğisloşltğo foşğtltjkof yoğ ftmolut ildfedğkdfed ct yzaö pobtğisloşltğ uzpz ıjvt poü mdllzjölkzköfeö.\n\nMğoheisğzşo, yd ftmolut yzflzkzgöjz mzğföj, pzbzeöjöj olm 3000 bölöjuz jtğtutbgt poü stloftktuo. Uçjbzjöj şzğmlö şzğmlö btğltğojut yzrlzjeögöa yoğ ftmolut tj etktl yoüokut mdllzjölköfeö zjvzm ktutjobteltğoj bömölöföblz gijğzmo zuöklzğz stüoltktkofeo.\n\nUıjtkoj tj ıjut dbszğlörö ilzj Üoj'ut ogt bzaöjöj foşğtgoa bzaölkzgöjöj yolt üim aiğ ilkzgö jtutjoblt mğoheisğzşo poü stloftktuo.\n\nUzpz gijğzlzğö (KI 5. - 6. bçaböl) zgmtğo ogeopyzğzeez soalolom stğtmktgo jtutjoblt, mğoheisğzşo zgmtğo zlzjz soğuo. Zgmtğo zlzjuzmo olm mğoheisğzşlzğ Ghzğezlölzğuöğ.\n\n9. bçaböl'uz Mojuî, mğoheilino yolokojut dbsdlzjzj etm zlşzytlo btğojt mibkz foşğtltkt bıjetkojo stlofeoğtğtm şğtmzjg zjzloaojo ydlzj olm mofo ilkdfedğ. Mojuî, mğoheilino yolokojut Ndl Gtazğ (KI 50) ezğzşöjuzj ydldjzj ct dbsdlzjzj etm zlşzytlo btğojt mibkz foşğtltkt bıjetkojo stlofeoğtğtm şğtmzjg zjzloaojo ydlzj olm mofouoğ.",
+      "type": "caesar",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+    },
+    {
+      "id": 11,
+      "text":"Yunus.",
+      "cipher": "xyzrt.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "2 karakter kaydırma"},
+      "subject": "Bilim ve Teknoloji",
+      "point": 100
+
+    }
+  ]
+}

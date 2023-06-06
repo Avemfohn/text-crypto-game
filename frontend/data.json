@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text":"Bugünün bilimi yarının teknolojisidir.",
+      "cipher": "Çvhyöyö çknkok acşjöjö ügmöpnplktkfkş.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "2 karakter kaydırma"},
+      "subject": "Bilim ve Teknoloji",
+      "point": 100
+
+    },
+     {
+      "id": 2,
+      "text":"Makineler ancak yanlış yaptıklarında size ne kadar güçlü olduklarını hatırlatır.",
+      "cipher": "Qeomripiv ergeo cerpış cetxıopevırhe wmdi ri oehev küçpü sphyopevırı lexıvpexıv.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "4 karakter kaydırma"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 3,
+      "text":"Teknoloji hareketleri kesin ve acımasız yapıyor. Bununla birlikte insanları da.",
+      "cipher": "Etmjilino pzğtmteltğo mtgoj ct zvökzgöa bzhöbiğ. Ydjdjlz yoğlomet ojgzjlzğö uz.",
+      "type": "atbash",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 4,
+      "text":"Yardım etmek, yaşamımıza anlam katan bir eylem ve mutluluk kaynağıdır.",
+      "cipher":"Admjue lselb, adpdeueucd dgçde bdsdg fvm laçle yl etsçtçtb bdagdrujum.",
+      "type": "affine",
+      "hint": {"hint1": "Affine Sifreleme", "hint2": "y=ax+b", "hint3": "(y=ax+b) -> x, şifrelenecek mesajı (plain text), y şifrelenmiş mesajı (cipher text) ifade etmektedir","hint3": "a=2 b=4"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 5,
+      "text":"Gelecek kuşaklara anlamlı bir dünya bırakmak için doğayı koruma sorumluluğumuz var.",
+      "cipher": "Yspsjsn nrlfnpfğf füpfşpg hığ ötüaf hgğfnşfn ımıü özbfag nzğrşf izğrşprprbrşrç vfğ.",
+      "type": "affine",
+      "hint": {"hint1": "Affine Sifreleme", "hint2": "y=ax+b", "hint3": "(y=ax+b) -> x, şifrelenecek mesajı (plain text), y şifrelenmiş mesajı (cipher text) ifade etmektedir","hint3": "a=3 b=6"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 6,
+      "text":"Teknoloji, hayatımızı dönüştüren ve yeni olanaklar sunan bir güçtür.",
+      "cipher": "Etmjilino, pzbzeököaö uıjçfeçğtj ct btjo ilzjzmlzğ gdjzj yoğ sçüeçğ.",
+      "type": "atbash",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 7,
+      "text":"Uzay keşfi, bilgi ve teknoloji alanında ilerlemeyi hızlandırabilir.",
+      "cipher": "Hklj ypgrü, müzsü ip ğpybczcvü lzlbuböl üzpezpapjü tukzlböuelmüzüe.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "14 karakter kaydırma"},
+      "subject": "Bilim ve Teknoloji",
+      "point": 100
+
+    },
+     {
+      "id": 8,
+      "text":"Dijital çağda gizlilik ve güvenlik endişeleri, toplumun dikkatini çekmektedir.",
+      "cipher": "Uonoezl üzruz soalolom ct sçctjlom tjuoftltğo, eihldkdj uommzeojo ütmktmetuoğ.",
+      "type": "atbash",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+    },
+     {
+      "id": 9,
+      "text":"Bilinçli güvenlik önlemleri, çevrimiçi güvenliği artırabilir.",
+      "cipher": "Ğhöhulöh vşüruöhm buörsörgh, lrüghshlh vşüruöhah egnfgeğhöhg.",
+      "type": "affine",
+      "hint": {"hint1": "Affine Sifreleme", "hint2": "y=ax+b", "hint3": "(y=ax+b) -> x, şifrelenecek mesajı (plain text), y şifrelenmiş mesajı (cipher text) ifade etmektedir","hint3": "a=3 b=5"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+
+    },
+     {
+      "id": 10,
+      "text":"Siber saldırılar, dijital varlıkları tehdit eder.",
+      "cipher": "Goytğ gzluöğölzğ, uonoezl czğlömlzğö etpuoe tutğ.",
+      "type": "caesar",
+      "hint": {"hint1": "Atbash Şifreleme", "hint2": "Alfabenin tersten yazılması ile oluşturulan bir kodlayıcıya sahiptir"},
+       "subject": "Bilim ve Teknoloji",
+       "point": 100
+    },
+    {
+      "id": 11,
+      "text":"Yunus.",
+      "cipher": "xyzrt.",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "2 karakter kaydırma"},
+      "subject": "Bilim ve Teknoloji",
+      "point": 100
+
+    }
+  ]
+}
