@@ -14,6 +14,7 @@ const PlainTextTemplateSingle = (props) => {
     const [gameOverModal, setGameOverModal] = useState(false);
     const [wrongGuess, setWrongGuess] = useState(0);
     const [guessAll, setGuessAll] = useState(true);
+    const [questionWordsState, setQuestionWordsState] = useState(props.questionWords);
 
     const [gameOver, setGameOver] = useState(false);
     const [isLoggedIn, setIsLoggedIn, levelScore, setLevelScore, levelMinute, setLevelMinute, levelSecond, setLevelSecond] = useContext(DataContext);
@@ -111,22 +112,103 @@ const PlainTextTemplateSingle = (props) => {
             setWordCheck(false);
         }
         console.log("spaceCount...", spaceCount, guessAll, uniqueArray)
-        
-        
     }
+
     function guessButtonClicked() {
         var array = [];
         var elements = document.getElementsByClassName("wordInput");
 
-        for (var j = 0; j < elements.length; j++) {
-
-            console.log(elements[j].value.toLocaleUpperCase("tr"))
-        }
         for (var i = 0; i < props.questionWords.length; i++) {
             if (regExp.test(props.questionWords[i])) {
                 array.push(props.questionWords[i])
             }
         }
+        console.log(array);
+        var letter = ""
+        var ids = [];
+        for (var j = 0; j < elements.length; j++) {
+            if (elements[j].value !== "") {
+                letter = elements[j].value;
+                var id = elements[j].parentNode.id.split("-");
+                ids.push(parseInt(id[1]))
+            }
+        }
+
+        console.log(ids, letter, props.questionWords[0],props.questionWords[8]);
+        for (var a = 0; a < ids.length; a++) {
+            if (letter.toLocaleUpperCase("tr") === props.questionWords[ids[a]].toLocaleUpperCase("tr")) {
+                document.getElementById("wordBox-" + ids[a]).classList.add("guessed");
+            } else {
+                document.getElementById("wordBox-" + ids[a]).classList.add("wrongGuess");
+            }
+
+        }
+
+        setTimeout(() => {
+            var inputElements = document.getElementsByClassName("wordBox");
+            var answer = true;
+            for (var k = 0; k < inputElements.length; k++) {
+                if (inputElements[k].classList.contains("wrongGuess")) {
+                    inputElements[k].classList.remove("wrongGuess");
+                    inputElements[k].firstChild.value = "";
+                    answer = false;
+                    if (localStorage.getItem("mode") === "single") {
+                        console.log("firstPlayer...", firstPlayerScore)
+                        setFirstPlayerScore(prevCount => prevCount - 10);
+                        console.log("firstPlayer...", firstPlayerScore)
+
+                    } else {
+                        if (props.turn === 1) {
+                            setFirstPlayerScore(prevCount => prevCount - 10);
+                        } else if (props.turn === 2) {
+                            setSecondPlayerScore(prevCount => prevCount - 10);
+                            if (firstPlayerScore < 0) {
+                                setSecondPlayerScore(prevCount => prevCount + prevCount);
+                            }
+                        }
+                    }
+                }
+                if (inputElements[k].classList.contains("guessed")) {
+                    answer = true;
+                    setCorrectWords(oldArray => [...oldArray, letter]);
+                    inputElements[k].classList.remove("guessed");
+                    if (localStorage.getItem("mode") === "single") {
+                        setFirstPlayerScore(prevCount => prevCount + 10);
+                    } else {
+                        if (props.turn === 1) {
+                            console.log("turn1111");
+                            setFirstPlayerScore(prevCount => prevCount + 10 );
+                        } else if (props.turn === 2) {
+                            setSecondPlayerScore(prevCount => prevCount + 10);
+                        }
+                    }
+                }
+            }
+            if (answer === false && localStorage.getItem("mode") === "multiplayer") {
+                props.wrongGuess()
+            }
+
+            setWordCheck(true);
+
+            var inputCountCheck = document.getElementsByClassName("wordInput");
+            console.log("inputCount...", inputCountCheck)
+        }, 1000);
+        setTimeout(() => {
+            var inputCountCheck = document.getElementsByClassName("wordInput");
+            console.log("inputCount...", inputCountCheck);
+            if (inputCountCheck.length === 0) {
+                if (props.newLevel === 1) {
+                    setGameOverModal(true);
+                    props.stopTime();
+                } else {
+                    setLevelPassed(true);
+                    props.stopTime();
+                }
+            }
+        }, 1200);
+
+
+        
     }
 
     function guessAllButtonClicked() {
@@ -135,23 +217,31 @@ const PlainTextTemplateSingle = (props) => {
         var correctCount = 0;
         var wrongCount = 0;
         var elements = document.getElementsByClassName("wordInput");
-        for (var i = 0; i < props.questionWords.length; i++) {
+        for (var i = 0; i < elements.length; i++) {
             if (regExp.test(props.questionWords[i])) {
                 array.push(props.questionWords[i])
             }
         }
+        var ids = [];
+        for (var j = 0; j < elements.length; j++) {
+            if (elements[j].value !== "") {
+                var id = elements[j].parentNode.id.split("-");
+                ids.push(parseInt(id[1]))
+            }
+        }
+        console.log(ids);
         
 
         for (var i = 0; i < elements.length; i++) {
             console.log(elements[i].value, array[i]);
             
-            if (elements[i].value.toLocaleUpperCase("tr") === array[i].toLocaleUpperCase("tr")) {
+            if (elements[i].value.toLocaleUpperCase("tr") === props.questionWords[ids[i]].toLocaleUpperCase("tr")) {
                 correctCount += 1
                 //console.log("parent...",elements[i].parentNode)
-                //elements[i].parentNode.classList.add("guessed");
+                elements[i].parentNode.classList.add("guessed");
             } else {
                 wrongCount += 1;
-                //elements[i].parentNode.classList.add("wrongGuess");
+                elements[i].parentNode.classList.add("wrongGuess");
             }
         }
         
@@ -194,7 +284,7 @@ const PlainTextTemplateSingle = (props) => {
              
             setTimeout(() => {
                 console.log("newLevel...",props.newLevel);
-                if (props.newLevel === 1) {
+                if (props.newLevel === 3) {
                     setGameOverModal(true);
                 } else {
                     setLevelPassed(true);

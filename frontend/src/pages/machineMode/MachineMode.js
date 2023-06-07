@@ -6,6 +6,7 @@ import PlainTextTemplateNew from '../singleMode/PlainTextTemplateNew';
 import Timer from '../../components/Timer';
 import ModalView from '../../components/ModalView';
 import ScoreView from '../singleMode/ScoreView';
+//import {machine} from './machineAnswer';
 //import { ChildProcess } from 'child_process';
 
 const MachineMode = (props) => {
@@ -16,7 +17,8 @@ const MachineMode = (props) => {
     const [newLevel, setNewLevel] = useState(1);
     const [questionNum, setQuestionNum] = useState(0);
     const [wrongGuessCount, setWrongGuessCount] = useState(0);
-
+    //var machinee = machine("aa");
+    //console.log(machinee)
     /*const spawner = ChildProcess.spawn;
     const data_to_pass_in = "Send this to python Yunus Emre Güneş";
     const python_process = spawner('python', ["./test.py", JSON.stringify(data_to_pass_in)]);
@@ -113,15 +115,10 @@ const MachineMode = (props) => {
         const response = await axios.post('/api/ciphertexts/', { text: questionCipherText });
         const plaintext = response.data.text;
         // Do something with the plaintext, such as updating the state or displaying it in the UI
-          return plaintext;
       } catch (error) {
         console.error('Failed to solve ciphertext:', error);
       }
     };
-    console.log("questionCipherText...", questionCipherText);
-    console.log("plaintext...", solveCiphertext());
-
-
 
 
     return (
@@ -141,7 +138,6 @@ const MachineMode = (props) => {
                 <PlainTextTemplateNew wrongGuessCount={wrongGuessCountHandle}cipherText={questionCipherText} question={question} questionWords={questionWords} stopTime={onStopTimeHandler} success={onSuccessHandler} newLevel={newLevel}></PlainTextTemplateNew>
             </div>
             { gameMode ? <></> : <ModalView type="exitGame" exitHandler={exitGame}></ModalView>}
-
         </div>
     );
 }

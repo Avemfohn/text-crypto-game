@@ -150,7 +150,7 @@ const PlainTextTemplateNew = (props) => {
                     setTimeout(() => {
                         var inputElements = document.getElementsByClassName("wordBox");
                         for (var k = 0; k < inputElements.length; k++) {
-                            if (inputElements[k].classList.contains("guessed)")) {
+                            if (inputElements[k].classList.contains("guessed")) {
                                 inputElements[k].classList.remove("guessed");
                             } else if (inputElements[k].classList.contains("wrongGuess")) {
                                 inputElements[k].classList.remove("wrongGuess");
@@ -160,8 +160,7 @@ const PlainTextTemplateNew = (props) => {
 
                     }, 4900);
 
-                //dd}
-            
+                //dd}       
     }
 
 

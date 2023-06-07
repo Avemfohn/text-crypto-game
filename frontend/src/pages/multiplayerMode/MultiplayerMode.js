@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from "react-query";
 import axios from "axios";
-import PlainTextTemplate from '../singleMode/PlainTextTemplate';
+import PlainTextTemplateSingle from '../singleMode/PlainTextTemplateSingle';
 import Timer from '../../components/Timer';
 import ModalView from '../../components/ModalView';
 import ScoreView from '../singleMode/ScoreView';
@@ -21,19 +21,19 @@ const MultiplayerMode = (props) => {
 
     console.log("multimode...", localStorage.getItem("mode"))
 
+
     useEffect(() => {
         var questionNumber;
         if (newLevel === 1) {
-            questionNumber = 10;
-        }
-        //     questionNumber = Math.floor(Math.random() * 11);
-        // } else if (newLevel === 2) {
-        //     questionNumber = Math.floor(Math.random() * 11)// + 10;
-        // } else if (newLevel === 3) {
-        //     questionNumber = Math.floor(Math.random() * 11)// + 20;
-        // } if (newLevel === 4) {
-        //     ////GAME OVER//////////
-        // }
+            //questionNumber = Math.floor(Math.random() * 11);
+            questionNumber = 10
+        } /*else if (newLevel === 2) {
+            questionNumber = Math.floor(Math.random() * 11)// + 10;
+        } else if (newLevel === 3) {
+            questionNumber = Math.floor(Math.random() * 11)// + 20;
+        } if (newLevel === 4) {
+            ////GAME OVER//////////
+        }*/
         console.log("newLevel......", newLevel, questionNumber);
 
         setQuestionNum(questionNumber);
@@ -99,22 +99,22 @@ const MultiplayerMode = (props) => {
     }
 
     function wrongGuessHandle() {
-        console.log("wronggg......")
+        console.log("wronggg......", turn)
         if (turn === 1) {
-            setFirstPlayerScore(prevCount => prevCount - 10);
+            //setFirstPlayerScore(prevCount => prevCount - 10);
             setTurn(2);
         } else {
-            setSecondPlayerScore(prevCount => prevCount - 10);
+            //setSecondPlayerScore(prevCount => prevCount - 10);
             setTurn(1);
         }
     }
 
     function correctAnswerHandle(count) {
-        if (turn === 1) {
+        /*if (turn === 1) {
             setFirstPlayerScore(prevCount => prevCount + (count * 10));
         } else {
             setSecondPlayerScore(prevCount => prevCount + (count * 10));
-        }
+        }*/
     }
 
     return (
@@ -131,7 +131,7 @@ const MultiplayerMode = (props) => {
                 <div className='cipherText'>
                     {data?.data[questionNum].cipher}
                 </div>
-                <PlainTextTemplate wrongGuess={wrongGuessHandle} wrongGuessCount={wrongGuessCountHandle} correct={correctAnswerHandle} cipherText={questionCipherText} question={question} questionWords={questionWords} stopTime={onStopTimeHandler} success={onSuccessHandler} newLevel={newLevel}></PlainTextTemplate>
+                <PlainTextTemplateSingle turn={turn} wrongGuess={wrongGuessHandle} wrongGuessCount={wrongGuessCountHandle} correct={correctAnswerHandle} cipherText={questionCipherText} question={question} questionWords={questionWords} stopTime={onStopTimeHandler} success={onSuccessHandler} newLevel={newLevel}></PlainTextTemplateSingle>
             </div>
             { gameMode ? <></> : <ModalView type="exitGame" exitHandler={exitGame}></ModalView>}
 
