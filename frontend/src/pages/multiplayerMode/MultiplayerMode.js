@@ -25,8 +25,8 @@ const MultiplayerMode = (props) => {
     useEffect(() => {
         var questionNumber;
         if (newLevel === 1) {
-            //questionNumber = Math.floor(Math.random() * 11);
-            questionNumber = 10
+            questionNumber = Math.floor(Math.random() * 11);
+            //questionNumber = 10
         } /*else if (newLevel === 2) {
             questionNumber = Math.floor(Math.random() * 11)// + 10;
         } else if (newLevel === 3) {

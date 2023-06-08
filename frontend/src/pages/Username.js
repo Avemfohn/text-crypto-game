@@ -58,6 +58,8 @@ const UsernameView = () => {
 
 
     console.error("mode...", gameMode);
+    setFirstPlayerScore(0);
+    setSecondPlayerScore(0);
 
     function inputChange(e) {
         setInput(e.target.value.trim());

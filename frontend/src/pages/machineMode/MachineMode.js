@@ -1,13 +1,15 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from "react-query";
 import axios from "axios";
-import PlainTextTemplateNew from '../singleMode/PlainTextTemplateNew';
+//import PlainTextTemplateNew from '../singleMode/PlainTextTemplateNew';
 import Timer from '../../components/Timer';
 import ModalView from '../../components/ModalView';
 import ScoreView from '../singleMode/ScoreView';
-//import {machine} from './machineAnswer';
+import {machine} from './machineAnswer';
 //import { ChildProcess } from 'child_process';
+const PlainTextTemplateNew = React.lazy(() => import('../singleMode/PlainTextTemplateNew'));
+
 
 const MachineMode = (props) => {
     const [questionList, setQuestionList] = useState([]);
@@ -17,7 +19,9 @@ const MachineMode = (props) => {
     const [newLevel, setNewLevel] = useState(1);
     const [questionNum, setQuestionNum] = useState(0);
     const [wrongGuessCount, setWrongGuessCount] = useState(0);
-    //var machinee = machine("aa");
+    var text = "Dlt dloığ dlt ısoğvlp dçükpgç rvytöçnvçgkt Uyuycoynvçp nktkoçp dlt nsşğilp gğaçöok roçtçn ısoğvğ nçgçt ığolş vçö uy lfğeğnnğp nçföçuk glnnçvlpl fğnğt Glnnçvoğ lcoğt roçbk Nsşğn uyuçöküvkt çöç ısoğvğ ığoglilpgğ uygçnl bçpuköçukpk ıstzş nrtnöçnvçgkt Dy bzcgğp gğ uyby lföğgğp nçföçnvçgkt Urpypgç nsşğn uyuycoyiç gçbçpçöçbkş nğpglpl ısoğvğ çvçt ağ nğpgl bçpuköçukpk ıstöğglil lflp uyby lfğt R çpgç dloığ gzüzpzt Dğplö dypgçp sitğpglilö üy rogy gğt Dlt lpuçpkp luvğnoğtl loğ çtçukpgçnl ğpığo friy cçöçp nğpgl lflpgğ dzbzvvziz nrtnyoçtgkt Nğpgl lflpgğ dzbzvvziz ğpığooğtglt İpuçp dypy çüçtuç luvğglnoğtlpl ğogğ ğgğdlolt Çöç dltçc gçjç gzüzpzpeğ çuokpgç ığtfğn sitğpglil üğblp dypgçp hçtnok rogyiypy ıstzt Çuko sitğpglil üğb lpuçpkp dlt dloığ dloğ rouç dlt nsşğnvğp sitğpğdloğeğil dloılplp açt rogyiygyt Dy bzcgğp pğ açtuç şçboçü uğpgğp gğ sitğploğeğn dlt üğboğt açtgkt gliğt lpuçpoçt lflp"
+
+    //var machinee = machine("Dlt dloığ dlt ısoğvlp dçükpgç rvytöçnvçgkt Uyuycoynvçp nktkoçp dlt nsşğilp gğaçöok roçtçn ısoğvğ nçgçt ığolş vçö uy lfğeğnnğp nçföçuk glnnçvlpl fğnğt Glnnçvoğ lcoğt roçbk Nsşğn uyuçöküvkt çöç ısoğvğ ığoglilpgğ uygçnl bçpuköçukpk ıstzş nrtnöçnvçgkt Dy bzcgğp gğ uyby lföğgğp nçföçnvçgkt Urpypgç nsşğn uyuycoyiç gçbçpçöçbkş nğpglpl ısoğvğ çvçt ağ nğpgl bçpuköçukpk ıstöğglil lflp uyby lfğt R çpgç dloığ gzüzpzt Dğplö dypgçp sitğpglilö üy rogy gğt Dlt lpuçpkp luvğnoğtl loğ çtçukpgçnl ğpığo friy cçöçp nğpgl lflpgğ dzbzvvziz nrtnyoçtgkt Nğpgl lflpgğ dzbzvvziz ğpığooğtglt İpuçp dypy çüçtuç luvğglnoğtlpl ğogğ ğgğdlolt Çöç dltçc gçjç gzüzpzpeğ çuokpgç ığtfğn sitğpglil üğblp dypgçp hçtnok rogyiypy ıstzt Çuko sitğpglil üğb lpuçpkp dlt dloığ dloğ rouç dlt nsşğnvğp sitğpğdloğeğil dloılplp açt rogyiygyt Dy bzcgğp pğ açtuç şçboçü uğpgğp gğ sitğploğeğn dlt üğboğt açtgkt gliğt lpuçpoçt lflp");
     //console.log(machinee)
     /*const spawner = ChildProcess.spawn;
     const data_to_pass_in = "Send this to python Yunus Emre Güneş";
@@ -31,7 +35,8 @@ const MachineMode = (props) => {
     useEffect(() => {
         var questionNumber;
         if (newLevel === 1) {
-            questionNumber = Math.floor(Math.random() * 11);
+            //questionNumber = Math.floor(Math.random() * 11);
+            questionNumber = 11;
         } /*else if (newLevel === 2) {
             questionNumber = Math.floor(Math.random() * 11)// + 10;
         } else if (newLevel === 3) {
@@ -135,7 +140,9 @@ const MachineMode = (props) => {
                 <div className='cipherText'>
                     {data?.data[questionNum].cipher}
                 </div>
-                <PlainTextTemplateNew wrongGuessCount={wrongGuessCountHandle}cipherText={questionCipherText} question={question} questionWords={questionWords} stopTime={onStopTimeHandler} success={onSuccessHandler} newLevel={newLevel}></PlainTextTemplateNew>
+                <Suspense fallback={<div>Yükleniyor...</div>}>
+                    <PlainTextTemplateNew machineAnswer={machine("Dlt dloığ dlt ısoğvlp dçükpgç rvytöçnvçgkt Uyuycoynvçp nktkoçp dlt nsşğilp gğaçöok roçtçn ısoğvğ nçgçt ığolş vçö uy lfğeğnnğp nçföçuk glnnçvlpl fğnğt Glnnçvoğ lcoğt roçbk Nsşğn uyuçöküvkt çöç ısoğvğ ığoglilpgğ uygçnl bçpuköçukpk ıstzş nrtnöçnvçgkt Dy bzcgğp gğ uyby lföğgğp nçföçnvçgkt Urpypgç nsşğn uyuycoyiç gçbçpçöçbkş nğpglpl ısoğvğ çvçt ağ nğpgl bçpuköçukpk ıstöğglil lflp uyby lfğt R çpgç dloığ gzüzpzt Dğplö dypgçp sitğpglilö üy rogy gğt Dlt lpuçpkp luvğnoğtl loğ çtçukpgçnl ğpığo friy cçöçp nğpgl lflpgğ dzbzvvziz nrtnyoçtgkt Nğpgl lflpgğ dzbzvvziz ğpığooğtglt İpuçp dypy çüçtuç luvğglnoğtlpl ğogğ ğgğdlolt Çöç dltçc gçjç gzüzpzpeğ çuokpgç ığtfğn sitğpglil üğblp dypgçp hçtnok rogyiypy ıstzt Çuko sitğpglil üğb lpuçpkp dlt dloığ dloğ rouç dlt nsşğnvğp sitğpğdloğeğil dloılplp açt rogyiygyt Dy bzcgğp pğ açtuç şçboçü uğpgğp gğ sitğploğeğn dlt üğboğt açtgkt gliğt lpuçpoçt lflp")} wrongGuessCount={wrongGuessCountHandle}cipherText={questionCipherText} question={question} questionWords={questionWords} stopTime={onStopTimeHandler} success={onSuccessHandler} newLevel={newLevel}></PlainTextTemplateNew>
+                </Suspense>
             </div>
             { gameMode ? <></> : <ModalView type="exitGame" exitHandler={exitGame}></ModalView>}
         </div>

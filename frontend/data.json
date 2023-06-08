@@ -107,6 +107,16 @@
       "subject": "Bilim ve Teknoloji",
       "point": 100
 
+    },
+    {
+      "id": 11,
+      "text": "Bir bilge bir göletin başında oturmaktadır Susuzluktan kırılan bir köpeğin devamlı olarak gölete kadar gelip tam su içecekken kaçması dikkatini çeker Dikkatle izler olayı Köpek susamıştır ama gölete geldiğinde sudaki yansımasını görüp korkmaktadır Bu yüzden de suyu içmeden kaçmaktadır Sonunda köpek susuzluğa dayanamayıp kendini gölete atar ve kendi yansımasını görmediği için suyu içer O anda bilge düşünür Benim bundan öğrendiğim şu oldu der Bir insanın istekleri ile arasındaki engel çoğu zaman kendi içinde büyüttüğü korkulardır Kendi içinde büyüttüğü engellerdir İnsan bunu aşarsa istediklerini elde edebilir Ama biraz daha düşününce aslında gerçek öğrendiği şeyin bundan farklı olduğunu görür Asıl öğrendiği şey insanın bir bilge bile olsa bir köpekten öğrenebileceği bilginin var olduğudur Bu yüzden ne varsa paylaş senden de öğrenilecek bir şeyler vardır diğer insanlar için",
+      "cipher": "Dlt dloığ dlt ısoğvlp dçükpgç rvytöçnvçgkt Uyuycoynvçp nktkoçp dlt nsşğilp gğaçöok roçtçn ısoğvğ nçgçt ığolş vçö uy lfğeğnnğp nçföçuk glnnçvlpl fğnğt Glnnçvoğ lcoğt roçbk Nsşğn uyuçöküvkt çöç ısoğvğ ığoglilpgğ uygçnl bçpuköçukpk ıstzş nrtnöçnvçgkt Dy bzcgğp gğ uyby lföğgğp nçföçnvçgkt Urpypgç nsşğn uyuycoyiç gçbçpçöçbkş nğpglpl ısoğvğ çvçt ağ nğpgl bçpuköçukpk ıstöğglil lflp uyby lfğt R çpgç dloığ gzüzpzt Dğplö dypgçp sitğpglilö üy rogy gğt Dlt lpuçpkp luvğnoğtl loğ çtçukpgçnl ğpığo friy cçöçp nğpgl lflpgğ dzbzvvziz nrtnyoçtgkt Nğpgl lflpgğ dzbzvvziz ğpığooğtglt İpuçp dypy çüçtuç luvğglnoğtlpl ğogğ ğgğdlolt Çöç dltçc gçjç gzüzpzpeğ çuokpgç ığtfğn sitğpglil üğblp dypgçp hçtnok rogyiypy ıstzt Çuko sitğpglil üğb lpuçpkp dlt dloığ dloğ rouç dlt nsşğnvğp sitğpğdloğeğil dloılplp açt rogyiygyt Dy bzcgğp pğ açtuç şçboçü uğpgğp gğ sitğploğeğn dlt üğboğt açtgkt gliğt lpuçpoçt lflp",
+      "type": "caesar",
+      "hint": {"hint1": "Caesar Sifreleme", "hint2": "2 karakter kaydırma"},
+      "subject": "Bilim ve Teknoloji",
+      "point": 100
+
     }
   ]
 }

@@ -284,7 +284,7 @@ const PlainTextTemplateSingle = (props) => {
              
             setTimeout(() => {
                 console.log("newLevel...",props.newLevel);
-                if (props.newLevel === 3) {
+                if (props.newLevel === 1) {
                     setGameOverModal(true);
                 } else {
                     setLevelPassed(true);
