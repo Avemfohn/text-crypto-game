@@ -293,7 +293,7 @@ export const machine = (cipher) => {
   three_letter_den_control.forEach((three) => {
     two_letter_de_control.forEach((two) => {
       if (two[0] === three[0] && two[1] === three[1]) {
-        console.log("Found a match!");
+        //console.log("Found a match!");
         var attempt = text.replace(new RegExp(two[0], "g"), "D");
         text = attempt;
       }
@@ -352,7 +352,7 @@ export const machine = (cipher) => {
   var splittedText = text.split(" ");
   var lower_word = "";
   var match_count = 0;
-  console.log(splittedText)
+  //console.log(splittedText)
   for (let i = 0; i < common_word_list.length; i++) {
     match_count = 0;
     
@@ -360,7 +360,7 @@ export const machine = (cipher) => {
       for (let j = 0; j < splitted_text.length; j++) {
         var two_letter_word = splitted_text[j];
         if (two_letter_word.length === 2) {
-            console.log(two_letter_word)
+            //console.log(two_letter_word)
           if (/[A-ZÇĞÖŞÜ]/.test(two_letter_word)) {
             let isLower_twoLetter = 1;
             
@@ -507,7 +507,7 @@ export const machine = (cipher) => {
             }
             
             if (countFiveLetter >= 4 && isLowerFiveLetter === 1 && wrongFiveLetterWord !== wrongFiveLetterWord.toLocaleUpperCase("tr")) {
-              console.log(wrongFiveLetterWord, correctFiveLetterWord)
+              //console.log(wrongFiveLetterWord, correctFiveLetterWord)
               let regex = new RegExp(wrongFiveLetterWord, "g");
               text = text.replace(regex, correctFiveLetterWord);
             }
@@ -544,7 +544,7 @@ export const machine = (cipher) => {
         word[word.length - 2].toLowerCase() === word[word.length - 2]
       ) {
         wordCountList.push(word[word.length - 2]);
-        console.log("qqq", word, word[word.length - 2]);
+        //console.log("qqq", word, word[word.length - 2]);
       }
     }
   }
@@ -583,7 +583,7 @@ export const machine = (cipher) => {
     sortedData = Object.entries(counter).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 
     if (sortedData.length > 0) {
-      console.log(sortedData)
+      //console.log(sortedData)
       let attempt = text.replaceAll(sortedData[0][0], "Ü");
       text = attempt;
     }
@@ -595,7 +595,7 @@ export const machine = (cipher) => {
 
   for (let i = 0; i < splittedText.length; i++) {
     if (splittedText[i].length === 1) {
-      console.log(splittedText[i]);
+      //console.log(splittedText[i]);
       let attempt = text.replaceAll(splittedText[i], "O");
       text = attempt;
     }
@@ -606,7 +606,7 @@ export const machine = (cipher) => {
         splittedText[i][splittedText[i].length - 2] === "O" &&
         splittedText[i][splittedText[i].length - 3].toLowerCase() === splittedText[i][splittedText[i].length - 3]
       ) {
-        console.log(splittedText[i][splittedText[i].length - 3]);
+        //console.log(splittedText[i][splittedText[i].length - 3]);
         let attempt = text.replaceAll(splittedText[i][splittedText[i].length - 3], "Y");
         text = attempt;
       }
@@ -654,7 +654,7 @@ export const machine = (cipher) => {
   }
     
   text = four_letter_common_words(text);
-  console.log(text);
+  //console.log(text);
   
    //////////////////////////////////////////////18///////////////////////////////////18
    //YOR "Y"
@@ -666,7 +666,7 @@ export const machine = (cipher) => {
       splittedText[i][splittedText[i].length - 2] === "O" &&
       splittedText[i][splittedText[i].length - 3].toLowerCase() === splittedText[i][splittedText[i].length - 3]
     ) {
-      console.log(splittedText[i][splittedText[i].length - 3]);
+      //console.log(splittedText[i][splittedText[i].length - 3]);
       let attempt = text.replaceAll(splittedText[i][splittedText[i].length - 3], "Y");
       text = attempt;
     }

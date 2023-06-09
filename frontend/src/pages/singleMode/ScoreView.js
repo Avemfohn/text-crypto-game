@@ -54,7 +54,7 @@ const ScoreView = (props) => {
                 <div className='username'>
                   {isLoggedIn}
                 </div>
-                <div className='point'>Score: {pointSum}</div>
+                <div className='point'>Score: {firstPlayerScore}</div>
               </div>
             ) : (
               <div className='multiplayer'>

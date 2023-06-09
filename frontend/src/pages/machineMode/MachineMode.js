@@ -109,6 +109,11 @@ const MachineMode = (props) => {
         setWrongGuessCount(count);
     }
 
+    function machineAnswerReturn() {
+        console.log(questionCipherText);
+        return questionCipherText;
+    }
+
 
 
 
@@ -141,7 +146,8 @@ const MachineMode = (props) => {
                     {data?.data[questionNum].cipher}
                 </div>
                 <Suspense fallback={<div>Yükleniyor...</div>}>
-                    <PlainTextTemplateNew machineAnswer={machine("Dlt dloığ dlt ısoğvlp dçükpgç rvytöçnvçgkt Uyuycoynvçp nktkoçp dlt nsşğilp gğaçöok roçtçn ısoğvğ nçgçt ığolş vçö uy lfğeğnnğp nçföçuk glnnçvlpl fğnğt Glnnçvoğ lcoğt roçbk Nsşğn uyuçöküvkt çöç ısoğvğ ığoglilpgğ uygçnl bçpuköçukpk ıstzş nrtnöçnvçgkt Dy bzcgğp gğ uyby lföğgğp nçföçnvçgkt Urpypgç nsşğn uyuycoyiç gçbçpçöçbkş nğpglpl ısoğvğ çvçt ağ nğpgl bçpuköçukpk ıstöğglil lflp uyby lfğt R çpgç dloığ gzüzpzt Dğplö dypgçp sitğpglilö üy rogy gğt Dlt lpuçpkp luvğnoğtl loğ çtçukpgçnl ğpığo friy cçöçp nğpgl lflpgğ dzbzvvziz nrtnyoçtgkt Nğpgl lflpgğ dzbzvvziz ğpığooğtglt İpuçp dypy çüçtuç luvğglnoğtlpl ğogğ ğgğdlolt Çöç dltçc gçjç gzüzpzpeğ çuokpgç ığtfğn sitğpglil üğblp dypgçp hçtnok rogyiypy ıstzt Çuko sitğpglil üğb lpuçpkp dlt dloığ dloğ rouç dlt nsşğnvğp sitğpğdloğeğil dloılplp açt rogyiygyt Dy bzcgğp pğ açtuç şçboçü uğpgğp gğ sitğploğeğn dlt üğboğt açtgkt gliğt lpuçpoçt lflp")} wrongGuessCount={wrongGuessCountHandle}cipherText={questionCipherText} question={question} questionWords={questionWords} stopTime={onStopTimeHandler} success={onSuccessHandler} newLevel={newLevel}></PlainTextTemplateNew>
+                    
+                    <PlainTextTemplateNew machineAnswer={/*machine(questionCipherText.replace(/[^\w\sğüşıöçĞÜŞİÖÇ]/gi, ''))MERTCANNNNNNN*/machine("qqq")} wrongGuessCount={wrongGuessCountHandle}cipherText={questionCipherText} question={question} questionWords={questionWords} stopTime={onStopTimeHandler} success={onSuccessHandler} newLevel={newLevel}></PlainTextTemplateNew>
                 </Suspense>
             </div>
             { gameMode ? <></> : <ModalView type="exitGame" exitHandler={exitGame}></ModalView>}

@@ -51,6 +51,7 @@ const PlainTextTemplateSingle = (props) => {
 
     function nextLevelClick() {
         setLevelPassed(false);
+        var wordInputs = document.getElementsByClassName("wordInputs");
         setCorrectWords([]);
         props.success();
     }
@@ -197,7 +198,8 @@ const PlainTextTemplateSingle = (props) => {
             var inputCountCheck = document.getElementsByClassName("wordInput");
             console.log("inputCount...", inputCountCheck);
             if (inputCountCheck.length === 0) {
-                if (props.newLevel === 1) {
+                console.error("newLeveldeğeri...", props.newLevel)
+                if (props.newLevel === 3) {
                     setGameOverModal(true);
                     props.stopTime();
                 } else {
@@ -212,7 +214,6 @@ const PlainTextTemplateSingle = (props) => {
     }
 
     function guessAllButtonClicked() {
-        props.stopTime();
         var array = [];
         var correctCount = 0;
         var wrongCount = 0;
@@ -279,17 +280,25 @@ const PlainTextTemplateSingle = (props) => {
      
                 }
             }, 5000);
-            setFirstPlayerScore(correctCount * 10);
+            setFirstPlayerScore(prevCount => prevCount + (10 * correctCount));
+            //setFirstPlayerScore(correctCount * 10);
             console.log("firstplayerScore...", correctCount*10)
              
             setTimeout(() => {
-                console.log("newLevel...",props.newLevel);
-                if (props.newLevel === 1) {
+                if (props.newLevel === 3) {
                     setGameOverModal(true);
+                    setCorrectWords([])
+                    props.stopTime();
                 } else {
+                    props.stopTime();
                     setLevelPassed(true);
+                    setCorrectWords([])
+                    for (var index = 0; index < elements.length; index++) {
+                        elements[index].value = "";
+                    }
+
                 }
-            }, 5000);
+            }, 1000);
         }
     }
     function checkMachineAnswer(array) {
@@ -325,7 +334,7 @@ const PlainTextTemplateSingle = (props) => {
                 //dd}
             
     }
-
+    var cipherWithoutSpecials = props.cipherText.replace(/[^\w\sğüşıöçĞÜŞİÖÇ]/gi, '');
 
     return (
         <div className="plainTextTemplate" lang='tr'>
@@ -384,7 +393,7 @@ const PlainTextTemplateSingle = (props) => {
             {/*{ levelPassed ? <ModalView type="nextLevel" wrongGuessCount={wrongGuess} nextLevelClickHandle={nextLevelClick}></ModalView> : <></>}*/}
             {/*{ gameOverModal ? <ModalView type="gameOver"></ModalView> : <></>}*/}
 
-            {showNlpModal ? <ModalView type="nlp" modalCloseHandle={openFrequencyModal} question={props.questionWords}></ModalView>: <></>}
+            {showNlpModal ? <ModalView type="nlp" modalCloseHandle={openFrequencyModal} question={cipherWithoutSpecials}></ModalView>: <></>}
             {levelPassed && mode !== "multiplayer" ? <ModalView type="nextLevel" wrongGuessCount={wrongGuess} nextLevelClickHandle={nextLevelClick}></ModalView> : <></>}
             {levelPassed && mode === "multiplayer" ? <ModalView type="multipNextLvl" wrongGuessCount={wrongGuess} nextLevelClickHandle={nextLevelClick}></ModalView> : <></>}
             {gameOverModal && mode !== "multiplayer" ? <ModalView type="gameOver"></ModalView> : <></>}

@@ -152,7 +152,7 @@ border: 1px solid rgba(113, 103, 103, 0.3);
   border: 1px solid rgba(181, 166, 166, 0.3);
 }
 .singleGame .cipherText {
-  font-size: 20px;
+  font-size: 22px;
   margin-top: 20px;
 }
 .plainTextTemplate {
@@ -325,6 +325,32 @@ section canvas {
   display: inline-block !important;
   max-width: 500px !important;
   max-height: 250px !important;
+}
+.commonWords {
+  width: 700px;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid gray;
+  padding: 5px;
+}
+.commonWordsHeader {
+  font-size: 20px;
+}
+.digrams, .trigrams {
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+
+}
+.digrams div, .trigrams div {
+  width: 470px;
+  padding: 5px;
+}
+.digramsHeader, .trigramsHeader {
+  font-size: 20px;
 }
 
 .nextLevelModal {

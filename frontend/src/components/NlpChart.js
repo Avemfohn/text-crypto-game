@@ -9,6 +9,8 @@ function NlpChart(props) {
   const [wordCount, setWordCount] = useState([]);
   const [twoWordList, setTwoWordList] = useState([]);
   const [twoWordCount, setTwoWordCount] = useState([]);
+  const [threeWordList, setThreeWordList] = useState([]);
+  const [threeWordCount, setThreeWordCount] = useState([]);
   const turkish_freq = [
     { letter: "a", freq: 11.92 },
     { letter: "b", freq: 2.844 },
@@ -40,12 +42,89 @@ function NlpChart(props) {
     { letter: "y", freq: 3.336 },
     { letter: "z", freq: 1.5 },
   ];
+  const turkish_digram_freq = [
+    { letter: "ar", freq: 0.02273 },
+    { letter: "la", freq: 0.02013 },
+    { letter: "an", freq: 0.01891 },
+    { letter: "er", freq: 0.01822 },
+    { letter: "in", freq: 0.01674 },
+    { letter: "le", freq: 0.01640 },
+    { letter: "de", freq: 0.01475 },
+    { letter: "en", freq: 0.01408 },
+    { letter: "ın", freq: 0.01377 },
+    { letter: "da", freq: 0.01311 },
+    { letter: "ir", freq: 0.01282 },
+    { letter: "bi", freq: 0.01253 },
+    { letter: "ka", freq: 0.01155 },
+    { letter: "ya", freq: 0.01135 },
+    { letter: "ma", freq: 0.01044 },
+    { letter: "di", freq: 0.01021 },
+    { letter: "nd", freq: 0.00980 },
+    { letter: "ra", freq: 0.00976 },
+    { letter: "al", freq: 0.00974 },
+    { letter: "ak", freq: 0.00967 },
+    { letter: "il", freq: 0.00870 },
+    { letter: "ri", freq: 0.00860 },
+    { letter: "me", freq: 0.00785 },
+    { letter: "li", freq: 0.00782 },
+    { letter: "or", freq: 0.00782 },
+    { letter: "ne", freq: 0.00738 },
+    { letter: "rı", freq: 0.00733 },
+    { letter: "ba", freq: 0.00718 },
+    { letter: "ni", freq: 0.00716 },
+  ];
+  const turkish_trigram_freq = [
+    { letter: "lar", freq: 0.01237 },
+    { letter: "bir", freq: 0.00952 },
+    { letter: "ler", freq: 0.00949 },
+    { letter: "eri", freq: 0.00764 },
+    { letter: "arı", freq: 0.00757 },
+    { letter: "yor", freq: 0.00643 },
+    { letter: "ara", freq: 0.00521 },
+    { letter: "nda", freq: 0.00482 },
+    { letter: "ini", freq: 0.00432 },
+    { letter: "ını", freq: 0.00428 },
+    { letter: "ası", freq: 0.00387 },
+    { letter: "den", freq: 0.00383 },
+    { letter: "nde", freq: 0.00383 },
+    { letter: "rin", freq: 0.00372 },
+    { letter: "ile", freq: 0.00367 },
+    { letter: "anı", freq: 0.00362 },
+    { letter: "ama", freq: 0.00357 },
+    { letter: "rın", freq: 0.00345 },
+    { letter: "nla", freq: 0.00338 },
+    { letter: "dan", freq: 0.00338 },
+    { letter: "ınd", freq: 0.00336 },
+    { letter: "edi", freq: 0.00326 },
+    { letter: "ada", freq: 0.00321 },
+    { letter: "aya", freq: 0.00316 },
+    { letter: "kar", freq: 0.00299 },
+    { letter: "ala", freq: 0.00298 },
+    { letter: "lan", freq: 0.00296 },
+    { letter: "eni", freq: 0.00294 },
+    { letter: "sın", freq: 0.00294 },
+  ];
   var turkish_freq_wordList = [];
   var turkish_freq_percentage = [];
   turkish_freq.forEach((element) => {
     turkish_freq_wordList.push(element.letter);
     turkish_freq_percentage.push(element.freq);
   });
+
+  var turkish_digram_freq_wordList = [];
+  var turkish_digram_freq_percentage = [];
+  turkish_digram_freq.forEach((element) => {
+    turkish_digram_freq_wordList.push(element.letter);
+    turkish_digram_freq_percentage.push(element.freq);
+  });
+
+  var turkish_trigram_freq_wordList = [];
+  var turkish_trigram_freq_percentage = [];
+  turkish_trigram_freq.forEach((element) => {
+    turkish_trigram_freq_wordList.push(element.letter);
+    turkish_trigram_freq_percentage.push(element.freq);
+  });
+  
   var state = {
     labels: wordList,
     datasets: [
@@ -59,7 +138,6 @@ function NlpChart(props) {
       },
     ],
   };
-  console.log("wordlist...", wordList);
   var twoWordState = {
     labels: twoWordList,
     datasets: [
@@ -70,6 +148,19 @@ function NlpChart(props) {
         borderWidth: "1",
         borderRadius: "2",
         data: twoWordCount,
+      },
+    ],
+  };
+  var threeWordState = {
+    labels: threeWordList,
+    datasets: [
+      {
+        label: "Üçlü Harf Frekansları",
+        backgroundColor: "gray",
+        borderColor: "gray",
+        borderWidth: "1",
+        borderRadius: "2",
+        data: threeWordCount,
       },
     ],
   };
@@ -86,16 +177,46 @@ function NlpChart(props) {
       },
     ],
   };
+  var turkish_digram_freq_state = {
+    labels: turkish_digram_freq_wordList,
+    datasets: [
+      {
+        label: "Türkçe ikili harf frekansları",
+        backgroundColor: "green",
+        borderColor: "green",
+        borderWidth: "1",
+        borderRadius: "2",
+        data: turkish_digram_freq_percentage,
+      },
+    ],
+  };
+  var turkish_trigram_freq_state = {
+    labels: turkish_trigram_freq_wordList,
+    datasets: [
+      {
+        label: "Türkçe üçlü harf frekansları",
+        backgroundColor: "black",
+        borderColor: "black",
+        borderWidth: "1",
+        borderRadius: "2",
+        data: turkish_trigram_freq_percentage,
+      },
+    ],
+  };
   var wordCountState = [];
   var twoWordCountState = [];
+  var threeWordCountState = [];
+
   useEffect(() => {
     var question = "";
+    console.log(props.question)
     for (let i = 0; i < props.question.length; i++) {
       question += props.question[i];
     }
-    console.log("question... ", question);
     countWords(question);
     countTwoWords(question);
+    countThreeWords(question);
+    
   }, []);
 
   useEffect(() => {
@@ -103,6 +224,8 @@ function NlpChart(props) {
     wordCountState = wordCount;
     twoWordState = twoWordList;
     twoWordCountState = twoWordCount;
+    threeWordState = threeWordList;
+    threeWordCountState = threeWordCount;
     console.log("effect", state, wordCountState);
   }, [wordList]);
 
@@ -157,10 +280,11 @@ function NlpChart(props) {
       }
     }
     setWordList([]);
+    console.error("resultArray", resultArray)
     resultArray.forEach((element) => {
       //setResultList(oldArray => [...oldArray, element]);
       setWordList((oldArray) => [...oldArray, element.word]);
-      setWordCount((oldArray) => [...oldArray, element.count]);
+      setWordCount((oldArray) => [...oldArray, element.percentage]);
     });
     /*resultList.forEach(element => {
          setWordList(oldArray => [...oldArray, element.word]);
@@ -208,7 +332,6 @@ function NlpChart(props) {
           count: output[word],
           percentage: perOut[word],
         };
-        console.log("object", newObject);
 
         let resultArrayControl = false;
         if (resultArray.length === 0) {
@@ -229,7 +352,7 @@ function NlpChart(props) {
     resultArray.forEach((element) => {
       //setResultList(oldArray => [...oldArray, element]);
       setTwoWordList((oldArray) => [...oldArray, element.word]);
-      setTwoWordCount((oldArray) => [...oldArray, element.count]);
+      setTwoWordCount((oldArray) => [...oldArray, element.percentage]);
     });
     //setWordList([]);
     /*resultList.forEach(element => {
@@ -238,6 +361,78 @@ function NlpChart(props) {
        });*/
     return [resultArray];
   }
+
+  function countThreeWords(str, e) {
+    if (threeWordList.length > 0) return;
+    console.log("str", str);
+    var resultArray = [];
+    if (str.length === 0) {
+      return {};
+    }
+    var output = {};
+    var perOut = {};
+    var strArr = str.split("");
+
+    let count = 0;
+    for (let i = 0; i < strArr.length - 2; i++) {
+      let word =
+        strArr[i].toLocaleLowerCase("tr") +
+        strArr[i + 1].toLocaleLowerCase("tr") +
+        strArr[i + 2].toLocaleLowerCase("tr");
+      if (!word.includes(" ")) {
+        if (output[word] === undefined) {
+          output[word] = 1;
+          count++;
+        } else {
+          output[word] += 1;
+          count += 1;
+        }
+      }
+    }
+    for (var j = 0; j < count; j++) {
+      let word =
+        strArr[j].toLocaleLowerCase("tr") +
+        strArr[j + 1].toLocaleLowerCase("tr") +
+        strArr[j + 2].toLocaleLowerCase("tr");
+
+      if (!word.includes(" ")) {
+        let percentage = (output[word] / count) * 100;
+        perOut[word] = parseFloat(percentage.toFixed(2));
+        var newObject = {
+          word: word,
+          count: output[word],
+          percentage: perOut[word],
+        };
+
+        let resultArrayControl = false;
+        if (resultArray.length === 0) {
+          resultArray.push(newObject);
+        } else {
+          resultArray.forEach((element) => {
+            if (element.word === newObject.word) {
+              resultArrayControl = true;
+            }
+          });
+          if (!resultArrayControl) {
+            resultArray.push(newObject);
+          }
+        }
+      }
+    }
+    setThreeWordList([]);
+    resultArray.forEach((element) => {
+      //setResultList(oldArray => [...oldArray, element]);
+      setThreeWordList((oldArray) => [...oldArray, element.word]);
+      setThreeWordCount((oldArray) => [...oldArray, element.percentage]);
+    });
+    //setWordList([]);
+    /*resultList.forEach(element => {
+         setTwoWordList(oldArray => [...oldArray, element.word]);
+         setTwoWordCount(oldArray => [...oldArray, element.count]);
+       });*/
+    return [resultArray];
+  }
+
 
   var isChartRendered = false;
   let chartContent = <div></div>;
@@ -249,15 +444,73 @@ function NlpChart(props) {
 
   chartContent = (
     <section>
-      <Bar data={state} />
-      <Bar data={twoWordState} />
       <Bar data={turkish_freq_state} />
+      <Bar data={state} />
+      <Bar data={turkish_digram_freq_state} />
+      <Bar data={twoWordState} />
+      <Bar data={turkish_trigram_freq_state} />
+      <Bar data={threeWordState} />
+
+
 
     </section>
   );
   
 
-  return <div className="nlpFrequency">{chartContent}</div>;
+  return <div className="nlpFrequency">
+    {chartContent}
+    <div className="digrams"> 
+      <div className="digramWordEndings">
+        <p className="digramsHeader">İkili Harf Başlangıçları:</p>
+        <p>
+          AN EN İN AR IN DA ER DE İD AK LE Nİ NA NE
+          NU İM DI Rİ RI OR EK YE RA DU UN YA Kİ İR LA IM Li
+          Sİ IK IR LI ET TI Tİ CE SI UM IŞ RE ĞI İZ İK İŞ MA IZ Bİ (%73)
+        </p>
+      </div>
+      <div className="digramWordBeginnings">
+        <p className="digramsHeader">İkili harf bitişleri:</p>
+        <p>
+          Bİ KA YA DE BA BU GE VE OL DA HA SA BE GÖ SO KO TA Gİ SE
+          NE HE AL GÜ YE AN Dİ İÇ KE Kİ AR TE ÇO DÜ KU İN VA İS ME
+          KI DO PA ON İL ÇA DU YO MA TÜ ÇI Mİ (%67.3)
+        </p>
+      </div>
+    </div>
+    <div className="trigrams"> 
+      <div className="trigramWordBeginnings">
+        <p className="trigramsHeader">Üçlü harf başlangıçları:</p>
+        <p>
+          BİR BAŞ İÇİ KAR GEL GÖR SON BEN OLA KAD YAP BİL KAL VER 
+          KEN ÇIK DEĞ VAR GÜN YAN GİB İST BAK DİY TÜR HER ARA OLM 
+          DED ÇOK DÜŞ DAH BUN GER OLD YER KON GEÇ PAR DUR KUR VİZ ANL ÇOC
+          YAR YIL BUL SEN OLU YOK (%30.6)
+        </p>
+      </div>
+      <div className="trigramWordEndings">
+        <p className="trigramsHeader">Üçlü harf bitişleri:</p>
+        <p>
+          LAR DAN LER DEN YOR ARI INI NDA İNİ ERİ İNE INA NDE NIN NİN RDU
+          YLE MIŞ AYA ASI MİŞ RAK IĞI RIN CAK ESİ RDI ARA İYE NRA MAK MEK 
+          TAN İĞİ DAR RİN EYE MAN LIK RUM UNU ADA RDİ ADI KEN DIR TEN DİR LİK YLA (%41.6)
+        </p>
+      </div>
+    </div>
+    <div className="commonWords">
+      <p className="commonWordsHeader">En Çok Kullanılan Kelimeler:</p>
+      <p>BİR VE BU DE DA NE O GİBİ İÇİN ÇOK SONRA DAHA Kİ KADAR
+      BEN HER DİYE DEDİ AMA HİÇ YA İLE EN VAR TÜRKİYE Mİ İKİ DEĞİL
+      GÜN BÜYÜK BÖYLE NİN MI IN ZAMAN İN İÇİNDE OLAN BİLE OLARAK 
+      ŞİMDİ KENDİ BÜTÜN YOK NASIL ŞEY SEN BAŞKA ONUN BANA ÖNCE NIN İYİ
+      ONU DOĞRU BENİM ÖYLE BENİ HEM HEMEN YENİ FAKAT BİZİM KÜÇÜK ARTIK 
+      İLK OLDUĞUNU ŞU KADIN KARŞI TÜRK OLDUĞU İŞTE ÇOCUK SON BİZ VARDU OLDU
+      AYNI ADAM ANCAK OLUR ONA BİRAZ TEK BEY ESKİ YIL BUNU TAM 
+      İNSAN GÖRE UZUN İSE GÜZEL YİNE KIZ BİRİ ÇÜNKÜ GECE (%23)
+      </p>
+    </div>
+    
+    
+    </div>;
 }
 
 export default NlpChart;

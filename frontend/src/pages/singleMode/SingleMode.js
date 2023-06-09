@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -6,8 +6,12 @@ import PlainTextTemplateSingle from './PlainTextTemplateSingle';
 import Timer from '../../components/Timer';
 import ModalView from '../../components/ModalView';
 import ScoreView from './ScoreView';
+import DataContext from '../../contexts/dataContext';
+import UserContext from '../../contexts/userContext';
 
 const SingleMode = (props) => {
+    const [isLoggedIn, setIsLoggedIn, levelScore, setLevelScore,  levelMinute, setLevelMinute, levelSecond, setLevelSecond] = useContext(DataContext);
+    const [firstPlayerName, setFirstPlayerName, secondPlayerName, setSecondPlayerName, firstPlayerScore, setFirstPlayerScore, secondPlayerScore, setSecondPlayerScore] = useContext(UserContext);
     const [questionList, setQuestionList] = useState([]);
     const [refresh, setRefresh] = useState(true);
     const [levelPassed, setLevelPassed] = useState(false);
@@ -22,13 +26,15 @@ const SingleMode = (props) => {
             // questionNumber = Math.floor(Math.random() * 11);
             questionNumber = 10;
         }
-        // else if (newLevel === 2) {
-        //     questionNumber = Math.floor(Math.random() * 11)// + 10;
-        // } else if (newLevel === 3) {
-        //     questionNumber = Math.floor(Math.random() * 11)// + 20;
-        // } if (newLevel === 4) {
-        //     ////GAME OVER//////////
-        // }
+        else if (newLevel === 2) {
+            questionNumber = 9;
+            //questionNumber = Math.floor(Math.random() * 11)// + 10;
+        } else if (newLevel === 3) {
+            questionNumber = 10;
+            //questionNumber = Math.floor(Math.random() * 11)// + 20;
+        } if (newLevel === 4) {
+             ////GAME OVER//////////
+        }
         console.log("newLevel......", newLevel, questionNumber);
         
         setQuestionNum(questionNumber);
@@ -68,6 +74,7 @@ const SingleMode = (props) => {
             setNewLevel(prevCount => prevCount + 1);
         }
         setLevelPassed(false);
+        setFirstPlayerScore(prevCount => prevCount + levelScore);
         console.error("onSuccessHandler...", newLevel);
     }
 
@@ -98,7 +105,7 @@ const SingleMode = (props) => {
         <div>
              <div className="timer scoreView headerView">                
                 <div className='leftSide'>
-                    <ScoreView wrong={wrongGuessCount} gameMode={"single"} newLevel={newLevel} point={data?.data[questionNum].point}></ScoreView>
+                    <ScoreView wrong={wrongGuessCount} gameMode={"single"} newLevel={newLevel} point={data?.data[questionNum].point} levelCount={newLevel}></ScoreView>
                     <button className='exitGameButton' onClick={exitGame}>Exit</button>
                 </div>
                 <Timer success={levelPassed}></Timer>

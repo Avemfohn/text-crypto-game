@@ -8,7 +8,6 @@ import DataContext from '../contexts/dataContext';
 import { Link } from 'react-router-dom';
 import UserContext from "../contexts/userContext";
 
-
 function ModalView(props) {
     const style = {
         position: 'absolute',
@@ -26,15 +25,16 @@ function ModalView(props) {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 1000,
+        width: 1100,
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
+        height: "600px",
+        overflow: "scroll"
     };
     const [isLoggedIn, setIsLoggedIn, levelScore, setLevelScore,  levelMinute, setLevelMinute, levelSecond, setLevelSecond] = useContext(DataContext);
     const [firstPlayerName, setFirstPlayerName, secondPlayerName, setSecondPlayerName, firstPlayerScore, setFirstPlayerScore, secondPlayerScore, setSecondPlayerScore] = useContext(UserContext);
-
     const [open, setOpen] = useState(true);
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
@@ -63,7 +63,7 @@ function ModalView(props) {
             >
                 <Box sx={nlpStyle}>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Harf Frekansları
+                    Dil Frekansları
                 </Typography>
                 <Typography component={'div'} sx={{ mt: 2 }}>
                     <Nlp question={props.question}></Nlp>
@@ -83,7 +83,7 @@ function ModalView(props) {
                 <Typography component={'div'} className='gameOverModal' id="modal-modal-description" sx={{ mt: 2 }}>
                     <img src={require("../images/icons8-checkmark-240.png")}></img>
                     <div className='statistics'>
-                        <div className='scoreStatistics'>Puan: {levelScore}</div>
+                        <div className='scoreStatistics'>Puan: {firstPlayerScore + levelScore}</div>
                         <div className='timeStatistics'>Zaman: {levelMinute < 10 ? <span>0{levelMinute }</span>:<span>{levelMinute }</span>}:{levelSecond < 10 ? <span>0{levelSecond }</span>:<span>{levelSecond }</span>}
                         </div>
                     </div>
@@ -178,7 +178,7 @@ function ModalView(props) {
                     <Typography component={'div'} className='nextLevelModal' id="modal-modal-description" sx={{ mt: 2 }}>
                         <img src={require("../images/icons8-checkmark-240.png")}></img>
                         <div className='statistics'>
-                            <div className='scoreStatistics'>Puan: {levelScore}</div>
+                            <div className='scoreStatistics'>Puan: {firstPlayerScore + levelScore}</div>
                             <div className='timeStatistics'>Zaman: {levelMinute < 10 ? <span>0{levelMinute }</span>:<span>{levelMinute }</span>}:{levelSecond < 10 ? <span>0{levelSecond }</span>:<span>{levelSecond }</span>}
                             </div>
                         </div>
@@ -267,7 +267,7 @@ function ModalView(props) {
         if (props.type ==="machineGameOver") {
             if (localStorage.getItem("mode") === "machine") {
                 let time = levelMinute * 60 + levelSecond;
-                postData(isLoggedIn, levelScore, time, localStorage.getItem("mode"));//.then(r => console.log(r));
+                postMachineData(firstPlayerName, firstPlayerScore, "Makine", secondPlayerScore, time);//.then(r => console.log(r));
             }
         }
 
@@ -280,14 +280,14 @@ function ModalView(props) {
         user: firstUser,
                 score: firstScore,
                 time: time,
-                date: "2023-03-29",
+                date: "2023-06-12",
     };
 
     const secondData = {
         user: secondUser,
                 score: secondScore,
                 time: time,
-                date: "2023-03-29",
+                date: "2023-06-12",
     };
 
         fetch(url, {
@@ -313,21 +313,21 @@ function ModalView(props) {
         .catch(error => console.error(error));
     };
     
-    const postMachineData = (firstUser, firstScore, machineScore, time) => {
+    const postMachineData = (firstUser, firstScore, machine, machineScore, time) => {
           const url = "http://localhost:8000/api/machine/";
 
     const userData = {
         user: firstUser,
                 score: firstScore,
                 time: time,
-                date: "2023-03-29",
+                date: "2023-06-12",
     };
 
     const machineData = {
-        user: "Machine",
+        user: machine,
                 score: machineScore,
                 time: time,
-                date: "2023-03-29",
+                date: "2023-06-12",
     };
 
           fetch(url, {
@@ -339,8 +339,8 @@ function ModalView(props) {
           })
             .then(response => response.json())
             .then(data => {
-              const gameId = data.id;
-              machineData.rows[0].game_id = gameId;
+              //const gameId = data.id;
+              //machineData.rows[0].game_id = gameId;
 
               fetch(url, {
                 method: "POST",
@@ -366,7 +366,7 @@ function ModalView(props) {
             {
                 score: firstScore,
                 time: time,
-                date: "2023-03-29",
+                date: "2023-06-12",
 
             },
         ],
